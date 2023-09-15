@@ -1,17 +1,18 @@
-const fs = require('fs')
-const path = require('path')
+const { warn } = require('console');
+const fs = require('fs');
+const path = require('path');
 
 /**
  * @see https://github.com/eslint/eslint/issues/3458
  * @see https://www.npmjs.com/package/@rushstack/eslint-patch
  */
-require('@rushstack/eslint-patch/modern-module-resolution')
+require('@rushstack/eslint-patch/modern-module-resolution');
 
 const tsConfig = fs.existsSync('tsconfig.json')
   ? path.resolve('tsconfig.json')
   : fs.existsSync('types/tsconfig.json')
-  ? path.resolve('types/tsconfig.json')
-  : undefined
+    ? path.resolve('types/tsconfig.json')
+    : undefined;
 
 module.exports = {
   env: {
@@ -21,7 +22,9 @@ module.exports = {
   },
   extends: ['prettier', './import.js'],
   rules: {
+    'indent': ['error', 2],
     'semi': 'warn',
+    'quotes': ['error', 'single'],
     'accessor-pairs': 'error',
     'array-callback-return': 'error',
     'arrow-body-style': 'off',
@@ -432,4 +435,4 @@ module.exports = {
       },
     },
   ],
-}
+};

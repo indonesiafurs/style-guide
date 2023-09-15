@@ -1,29 +1,29 @@
-const readPkgUp = require('read-pkg-up')
+const readPkgUp = require('read-pkg-up');
 
 /**
  * @see https://github.com/eslint/eslint/issues/3458
  * @see https://www.npmjs.com/package/@rushstack/eslint-patch
  */
-require('@rushstack/eslint-patch/modern-module-resolution')
+require('@rushstack/eslint-patch/modern-module-resolution');
 
-let hasJestDom = false
-let hasTestingLibrary = false
+let hasJestDom = false;
+let hasTestingLibrary = false;
 
 try {
-  const {packageJson} = readPkgUp.sync({normalize: true})
+  const {packageJson} = readPkgUp.sync({normalize: true});
   const allDeps = Object.keys({
     ...packageJson.peerDependencies,
     ...packageJson.devDependencies,
     ...packageJson.dependencies,
-  })
+  });
 
-  hasJestDom = allDeps.includes('@testing-library/jest-dom')
+  hasJestDom = allDeps.includes('@testing-library/jest-dom');
   hasTestingLibrary = [
     '@testing-library/dom',
     '@testing-library/react',
     '@testing-library/angular',
     '@testing-library/vue',
-  ].some(dependency => allDeps.includes(dependency))
+  ].some(dependency => allDeps.includes(dependency));
 } catch (error) {
   // ignore error
 }
@@ -101,50 +101,50 @@ module.exports = {
 
         ...(hasJestDom
           ? {
-              'jest-dom/prefer-checked': 'error',
-              'jest-dom/prefer-empty': 'error',
-              'jest-dom/prefer-enabled-disabled': 'error',
-              'jest-dom/prefer-focus': 'error',
-              'jest-dom/prefer-in-document': 'error',
-              'jest-dom/prefer-required': 'error',
-              'jest-dom/prefer-to-have-attribute': 'error',
-              'jest-dom/prefer-to-have-class': 'error',
-              'jest-dom/prefer-to-have-style': 'error',
-              'jest-dom/prefer-to-have-text-content': 'error',
-              'jest-dom/prefer-to-have-value': 'error',
-            }
+            'jest-dom/prefer-checked': 'error',
+            'jest-dom/prefer-empty': 'error',
+            'jest-dom/prefer-enabled-disabled': 'error',
+            'jest-dom/prefer-focus': 'error',
+            'jest-dom/prefer-in-document': 'error',
+            'jest-dom/prefer-required': 'error',
+            'jest-dom/prefer-to-have-attribute': 'error',
+            'jest-dom/prefer-to-have-class': 'error',
+            'jest-dom/prefer-to-have-style': 'error',
+            'jest-dom/prefer-to-have-text-content': 'error',
+            'jest-dom/prefer-to-have-value': 'error',
+          }
           : null),
 
         ...(hasTestingLibrary
           ? {
-              'testing-library/await-async-query': 'error',
-              'testing-library/await-async-utils': 'error',
-              'testing-library/await-fire-event': 'off',
-              'testing-library/consistent-data-testid': 'off',
-              'testing-library/no-await-sync-events': 'error',
-              'testing-library/no-await-sync-query': 'error',
-              'testing-library/no-container': 'error',
-              'testing-library/no-debugging-utils': 'error',
-              'testing-library/no-dom-import': ['error', 'react'],
-              'testing-library/no-global-regexp-flag-in-query': 'error',
-              'testing-library/no-manual-cleanup': 'error',
-              'testing-library/no-node-access': 'error',
-              'testing-library/no-promise-in-fire-event': 'error',
-              'testing-library/no-render-in-setup': 'error',
-              'testing-library/no-unnecessary-act': 'error',
-              'testing-library/no-wait-for-empty-callback': 'error',
-              'testing-library/no-wait-for-multiple-assertions': 'error',
-              'testing-library/no-wait-for-side-effects': 'error',
-              'testing-library/no-wait-for-snapshot': 'error',
-              'testing-library/prefer-explicit-assert': 'warn',
-              'testing-library/prefer-find-by': 'error',
-              'testing-library/prefer-presence-queries': 'error',
-              'testing-library/prefer-query-by-disappearance': 'error',
-              'testing-library/prefer-screen-queries': 'error',
-              'testing-library/prefer-user-event': 'error',
-              'testing-library/prefer-wait-for': 'error',
-              'testing-library/render-result-naming-convention': 'error',
-            }
+            'testing-library/await-async-query': 'error',
+            'testing-library/await-async-utils': 'error',
+            'testing-library/await-fire-event': 'off',
+            'testing-library/consistent-data-testid': 'off',
+            'testing-library/no-await-sync-events': 'error',
+            'testing-library/no-await-sync-query': 'error',
+            'testing-library/no-container': 'error',
+            'testing-library/no-debugging-utils': 'error',
+            'testing-library/no-dom-import': ['error', 'react'],
+            'testing-library/no-global-regexp-flag-in-query': 'error',
+            'testing-library/no-manual-cleanup': 'error',
+            'testing-library/no-node-access': 'error',
+            'testing-library/no-promise-in-fire-event': 'error',
+            'testing-library/no-render-in-setup': 'error',
+            'testing-library/no-unnecessary-act': 'error',
+            'testing-library/no-wait-for-empty-callback': 'error',
+            'testing-library/no-wait-for-multiple-assertions': 'error',
+            'testing-library/no-wait-for-side-effects': 'error',
+            'testing-library/no-wait-for-snapshot': 'error',
+            'testing-library/prefer-explicit-assert': 'warn',
+            'testing-library/prefer-find-by': 'error',
+            'testing-library/prefer-presence-queries': 'error',
+            'testing-library/prefer-query-by-disappearance': 'error',
+            'testing-library/prefer-screen-queries': 'error',
+            'testing-library/prefer-user-event': 'error',
+            'testing-library/prefer-wait-for': 'error',
+            'testing-library/render-result-naming-convention': 'error',
+          }
           : null),
       },
     },
@@ -156,4 +156,4 @@ module.exports = {
       },
     },
   ],
-}
+};
