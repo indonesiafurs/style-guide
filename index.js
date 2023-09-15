@@ -248,6 +248,42 @@ module.exports = {
   },
   overrides: [
     {
+      files: ['**/*.vue'],
+      parser: 'vue-eslint-parser',
+      extends: ['plugin:vue/vue3-recommended'],
+      globals: {
+        defineProps: 'readonly',
+        defineEmits: 'readonly',
+        defineExpose: 'readonly',
+        withDefaults: 'readonly',
+        defineOptions: 'readonly',
+      },
+      rules: {
+        'vue/max-attributes-per-line': 'off',
+        'vue/no-v-html': 'off',
+        'vue/multi-word-component-names': 'off',
+        'vue/html-self-closing': [
+          'error',
+          {
+            html: {
+              void: 'always',
+              normal: 'always',
+              component: 'always',
+            },
+            svg: 'always',
+            math: 'always',
+          },
+        ],
+
+        // Reactivity Transform
+        'vue/no-setup-props-destructure': 'off',
+        'vue/component-tags-order': [
+          'error',
+          { order: ['script', 'template', 'style'] },
+        ],
+      },
+    },
+    {
       files: ['**/*.ts?(x)'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
