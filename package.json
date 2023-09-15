@@ -1,12 +1,15 @@
 {
   "name": "@indonesiafurs/style-guide",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "🐞 | ESLint & Prettier style guides for various IF projects :3",
   "keywords": [],
   "homepage": "https://github.com/indonesiafurs/style-guide",
   "repository": {
     "type": "git",
     "url": "https://github.com/indonesiafurs/style-guide.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "license": "MIT",
   "author": "Christopher Angelo <angelo@angeloanan.xyz>",
@@ -34,6 +37,7 @@
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
     "eslint-config-prettier": "^8.6.0",
+    "eslint-define-config": "^1.23.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jest": "^26.9.0",
     "eslint-plugin-jest-dom": "^4.0.3",
