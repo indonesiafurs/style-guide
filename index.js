@@ -46,7 +46,7 @@ module.exports = {
     'func-name-matching': 'error',
     'func-names': 'error',
     'func-style': 'off',
-    'getter-return': ['error', {allowImplicit: true}],
+    'getter-return': ['error', { allowImplicit: true }],
     'grouped-accessor-pairs': 'off',
     'guard-for-in': 'error',
     'id-denylist': 'error',
@@ -64,13 +64,13 @@ module.exports = {
     'max-depth': ['error', 4],
     'max-lines': [
       'error',
-      {max: 2500, skipBlankLines: false, skipComments: false},
+      { max: 2500, skipBlankLines: false, skipComments: false },
     ],
     'max-lines-per-function': 'off', // this becomes an obvious problem when it's actually a problem...
     'max-nested-callbacks': ['error', 7],
     'max-params': ['error', 7],
     'max-statements': 'off', // this becomes an obvious problem when it's actually a problem...
-    'max-statements-per-line': ['error', {max: 1}],
+    'max-statements-per-line': ['error', { max: 1 }],
     'multiline-comment-style': 'off', // this would be cool to get the fixer, but too strict.
     'new-cap': 'error',
     'no-alert': 'error',
@@ -208,15 +208,15 @@ module.exports = {
     'no-useless-return': 'error',
     'no-var': 'error',
     'no-void': 'off',
-    'no-warning-comments': ['error', {location: 'anywhere', terms: ['fixme']}],
+    'no-warning-comments': ['error', { location: 'anywhere', terms: ['fixme'] }],
     'no-with': 'off',
     'object-shorthand': ['error', 'properties'], // methods are optional so you can specify a name if you want
-    'one-var': ['error', {initialized: 'never', uninitialized: 'always'}],
+    'one-var': ['error', { initialized: 'never', uninitialized: 'always' }],
     'operator-assignment': 'off', // readability on a case-by-case basis
     'padding-line-between-statements': 'off', // meh...
     'prefer-arrow-callback': [
       'error',
-      {allowNamedFunctions: true, allowUnboundThis: true},
+      { allowNamedFunctions: true, allowUnboundThis: true },
     ],
     'prefer-const': 'error',
     'prefer-destructuring': 'off', // nah, I like it, but not that much...
@@ -247,49 +247,6 @@ module.exports = {
     yoda: 'error',
   },
   overrides: [
-    {
-      files: ['**/*.vue'],
-      parser: 'vue-eslint-parser',
-      parserOptions: {
-        parser: '@typescript-eslint/parser',
-        extraFileExtensions: ['.vue'],
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-      extends: ['plugin:vue/vue3-recommended'],
-      globals: {
-        defineProps: 'readonly',
-        defineEmits: 'readonly',
-        defineExpose: 'readonly',
-        withDefaults: 'readonly',
-        defineOptions: 'readonly',
-      },
-      rules: {
-        'vue/max-attributes-per-line': 'off',
-        'vue/no-v-html': 'off',
-        'vue/multi-word-component-names': 'off',
-        'vue/html-self-closing': [
-          'error',
-          {
-            html: {
-              void: 'always',
-              normal: 'always',
-              component: 'always',
-            },
-            svg: 'always',
-            math: 'always',
-          },
-        ],
-
-        // Reactivity Transform
-        'vue/no-setup-props-destructure': 'off',
-        'vue/component-tags-order': [
-          'error',
-          { order: ['script', 'template', 'style'] },
-        ],
-      },
-    },
     {
       files: ['**/*.ts?(x)'],
       parser: '@typescript-eslint/parser',
@@ -426,7 +383,7 @@ module.exports = {
         '@typescript-eslint/no-misused-new': 'error',
         '@typescript-eslint/no-misused-promises': [
           'warn',
-          {checksVoidReturn: false},
+          { checksVoidReturn: false },
         ],
         '@typescript-eslint/no-namespace': 'error',
         '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',

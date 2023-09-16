@@ -17,6 +17,7 @@ module.exports = defineConfig({
       files: ['*.vue'],
       parser: 'vue-eslint-parser',
       parserOptions: {
+        sourceType: 'module',
         parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.vue'],
         ecmaFeatures: {
@@ -38,7 +39,7 @@ module.exports = defineConfig({
       },
     },
   ],
-  extends: ['plugin:vue/vue3-recommended'],
+  extends: ['prettier', 'plugin:vue/vue3-recommended'],
   rules: {
     'vue/max-attributes-per-line': 'off',
     'vue/no-v-html': 'off',

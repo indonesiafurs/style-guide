@@ -1,6 +1,6 @@
 {
   "name": "@indonesiafurs/style-guide",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "🐞 | ESLint & Prettier style guides for various IF projects :3",
   "keywords": [],
   "homepage": "https://github.com/indonesiafurs/style-guide",
@@ -47,7 +47,8 @@
     "eslint-plugin-testing-library": "^5.10.0",
     "eslint-plugin-vue": "^9.17.0",
     "read-pkg-up": "^7.0.1",
-    "semver": "^7.3.8"
+    "semver": "^7.3.8",
+    "vue-eslint-parser": "^9.3.1"
   },
   "devDependencies": {
     "@testing-library/dom": "^8.20.0",
@@ -63,7 +64,7 @@
   },
   "peerDependencies": {
     "eslint": "^8.0.0",
-    "typescript": "^4.0.0"
+    "typescript": "^5.0.0"
   },
   "peerDependenciesMeta": {
     "typescript": {
@@ -71,7 +72,8 @@
     }
   },
   "engines": {
-    "node": "^12.22.0 || ^14.17.0 || >=16.0.0",
+    "node": ">=18 || >=20",
+    "pnpm": ">=8.0.0",
     "npm": ">=6",
     "yarn": ">=1"
   }
