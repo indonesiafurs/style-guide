@@ -1,31 +1,31 @@
-const readPkgUp = require('read-pkg-up')
-const semver = require('semver')
+const readPkgUp = require('read-pkg-up');
+const semver = require('semver');
 
 /**
  * @see https://github.com/eslint/eslint/issues/3458
  * @see https://www.npmjs.com/package/@rushstack/eslint-patch
  */
-require('@rushstack/eslint-patch/modern-module-resolution')
+require('@rushstack/eslint-patch/modern-module-resolution');
 
-let oldestSupportedReactVersion = '16.5.2'
+let oldestSupportedReactVersion = '16.5.2';
 
-let hasPropTypes = false
+let hasPropTypes = false;
 try {
-  const pkg = readPkgUp.sync({normalize: true})
+  const pkg = readPkgUp.sync({ normalize: true });
   // eslint-disable-next-line prefer-object-spread
   const allDeps = Object.assign(
-    {react: '16.5.2'},
+    { react: '16.5.2' },
     pkg.peerDependencies,
     pkg.devDependencies,
     pkg.dependencies,
-  )
-  hasPropTypes = allDeps.hasOwnProp('prop-types')
+  );
+  hasPropTypes = allDeps.hasOwnProp('prop-types');
   oldestSupportedReactVersion = semver
     .validRange(allDeps.react)
     .replace(/[>=<|]/g, ' ')
     .split(' ')
     .filter(Boolean)
-    .sort(semver.compare)[0]
+    .sort(semver.compare)[0];
 } catch (error) {
   // ignore error
 }
@@ -50,7 +50,7 @@ module.exports = {
     'react/button-has-type': 'off',
     'react/default-props-match-prop-types': hasPropTypes ? 'error' : 'off',
     'react/destructuring-assignment': 'off',
-    'react/display-name': ['error', {ignoreTranspilerName: false}],
+    'react/display-name': ['error', { ignoreTranspilerName: false }],
     'react/forbid-component-props': 'off',
     'react/forbid-dom-props': 'off',
     'react/forbid-elements': 'off',
@@ -62,9 +62,9 @@ module.exports = {
     'react/jsx-boolean-value': 'off',
     'react/jsx-curly-brace-presence': [
       'warn',
-      {children: 'ignore', props: 'never'},
+      { children: 'ignore', props: 'never' },
     ],
-    'react/jsx-filename-extension': ['error', {extensions: ['.js']}],
+    'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
     'react/jsx-fragments': 'off',
     'react/jsx-handler-names': 'off',
     'react/jsx-key': 'error',
@@ -74,7 +74,7 @@ module.exports = {
     'react/jsx-no-comment-textnodes': 'error',
     'react/jsx-no-constructed-context-values': 'off',
     'react/jsx-no-duplicate-props': 'error',
-    'react/jsx-no-leaked-render': ['error', {validStrategies: ['ternary']}],
+    'react/jsx-no-leaked-render': ['error', { validStrategies: ['ternary'] }],
     'react/jsx-no-literals': 'off',
     'react/jsx-no-script-url': 'error',
     'react/jsx-no-target-blank': 'error',
@@ -112,7 +112,7 @@ module.exports = {
     'react/no-unescaped-entities': 'warn',
     'react/no-unknown-property': 'error',
     'react/no-unsafe': 'warn', // if you need it there should be a comment explaining why
-    'react/no-unstable-nested-components': ['error', {allowAsProps: true}],
+    'react/no-unstable-nested-components': ['error', { allowAsProps: true }],
     'react/no-unused-class-component-methods': 'error',
     'react/no-unused-prop-types': hasPropTypes ? 'error' : 'off',
     'react/no-unused-state': 'error',
@@ -122,7 +122,6 @@ module.exports = {
     'react/prefer-read-only-props': 'off',
     'react/prefer-stateless-function': 'off',
     'react/prop-types': hasPropTypes ? 'error' : 'off',
-    'react/react-in-jsx-scope': 'error',
     'react/require-default-props': 'off', // sometimes the default value is undefined so that's fine...
     'react/require-optimization': 'off',
     'react/require-render-return': 'error',
@@ -144,10 +143,10 @@ module.exports = {
       rules: {
         'react/jsx-filename-extension': [
           'error',
-          {extensions: ['.ts', '.tsx']},
+          { extensions: ['.ts', '.tsx'] },
         ],
         'react/prop-types': 'off',
       },
     },
   ],
-}
+};
