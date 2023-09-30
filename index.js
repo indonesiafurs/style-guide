@@ -1,4 +1,3 @@
-const { warn } = require('console');
 const fs = require('fs');
 const path = require('path');
 
@@ -24,7 +23,7 @@ module.exports = {
   rules: {
     'indent': ['error', 2],
     'semi': 'warn',
-    'quotes': ['error', 'single'],
+    'quotes': ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
     'accessor-pairs': 'error',
     'array-callback-return': 'error',
     'arrow-body-style': 'off',
