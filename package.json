@@ -6,7 +6,7 @@
   "homepage": "https://github.com/indonesiafurs/style-guide",
   "repository": {
     "type": "git",
-    "url": "https://github.com/indonesiafurs/style-guide.git"
+    "url": "git+https://github.com/indonesiafurs/style-guide.git"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
